@@ -1,17 +1,15 @@
 #include "_printf.h"
 /**
- * get_op_format - Connects to th ecorrect operating function.
- * @s: Operator passed as argument to the program.
+ * get_op_format - Connects to the correct operating function.
+ * @spec: Operator passed as argument to the program.
  * @va_list: List of arguments.
+ *
+ * Return: The correct operating function.
  */
 int get_op_format(char spec, va_list args)
-/**
- */
-int _printf(const char *format, ...)
-
 {
 	op_t ops[] = {
-		{"c", _putchar},
+		{"c", print_char},
 		{"s", print_str},
 		{"d", print_int},
 		{"i", print_int},
@@ -21,14 +19,11 @@ int _printf(const char *format, ...)
 
 	for (i = 0, count = 0; ops[i].op != NULL; i++)
 	{
-		if (s[i] == ops[i].op)
+		if (ops[i].op == spec)
 		{
-			count = _strlen(*s);
-		}
-		else
-		{
-			return NULL
+			count = ops[i].f(args);
+			break;
 		}
 	}
-	return (*ops[i].f);
+	return (count);
 }

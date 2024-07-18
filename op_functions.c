@@ -13,6 +13,35 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
+ * print_char - Prints a single character.
+ * @va_list: List of arguments.
+ * @args: Amount of arguments.
+ *
+ * Return: 1.
+ */
+int print_char(va_list args)
+{
+	char c = (char)va_arg(args, int);
+
+	_putchar(c);
+	return (1);
+}
+/**
+ * _strlen - Finds the length of a string.
+ * @s: Pointer to the string.
+ *
+ * Return: The length of the string.
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+
+	return (i);
+}
+/**
  * print_str - print a string
  * @args: strings given
  *
@@ -21,6 +50,7 @@ int _putchar(char c)
 
 int print_str(va_list args)
 {
+	char *s = va_arg(args, char*);
 	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
@@ -42,6 +72,7 @@ int print_int(va_list args)
 	int zeros;
 	int temp;
 	int count;
+	int i;
 
 	zeros = 1;
 	temp = i;
