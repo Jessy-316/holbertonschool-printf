@@ -9,9 +9,9 @@ int _printf(const char *format, ...)
 {
 	int i, count = 0;
 
-	va_list arguments;
+	va_list args;
 
-	va_start(arguments, format);
+	va_start(args, format);
 
 	if (format != NULL)
 	{
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] == '%' && format[i + 1] != '\0')
 			{
-				count += get_op_format(format[++i], arguments);
+				count += get_op_format(format[i + 1], args);
 			}
 			else
 			{
@@ -28,8 +28,6 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-
-	va_end(arguments);
-
+	va_end(args);
 	return (count);
 }

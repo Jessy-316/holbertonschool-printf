@@ -4,38 +4,40 @@
  * _putchar - print a character
  * @c: character
  *
- * return(0)
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 
 int _putchar(char c)
 {
-	return write (1,&c,1);
+	return (write(1, &c, 1));
 }
 /**
  * print_str - print a string
- * @s: _str
+ * @args: strings given
  *
- * return(0)
+ * Return: the character on a string.
  */
 
-int print_str(char *s)
+int print_str(va_list args)
 {
 	int i;
-	
-	for(i = 0; s[i] != '\0'; i++)
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		_putchar(s[i]);
 	}
-	return(i);
+	return (i);
 }
 
 /**
- * pirnt_int - print a integer
+ * print_int - print a integer.
+ * @args: integer recieved.
  *
- * return(0)
+ * Return: 0.
  */
 
-int print_int(int i)
+int print_int(va_list args)
 {
 	int zeros;
 	int temp;
@@ -44,20 +46,20 @@ int print_int(int i)
 	zeros = 1;
 	temp = i;
 
-	if(i < 0)
+	if (i < 0)
 	{
 		count += _putchar('-');
 		i = -i;
 	}
-	while(i > 9)
+	while (i > 9)
 	{
 		temp = temp / 10;
 		zeros += 10;
 	}
-	while(zeros >= 1)
+	while (zeros >= 1)
 	{
-		count += _putchar(((i / zero) % 10) + '0');
-		zero / 10;
+		count += _putchar(((i / zeros) % 10) + '0');
+		zeros / 10;
 	}
-	return(count);
+	return (count);
 }
