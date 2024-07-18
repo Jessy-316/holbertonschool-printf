@@ -3,21 +3,22 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 /**
- * struct op - structure with operations
- * @op: operator
- * @f: function associated with the operator
+ * struct op - Structure with operations.
+ * @operator: Operator.
+ * @f: Function associated with the operator.
  */
 
 typedef struct op
 {
-  char *op;
-  int (*f)(...);
+char *op;
+int (*f)(va_list);
 } op_t;
 
 int _putchar(char c);
-int _strlen(char *s);
-int _mod(char c);
+int print_str(char *s);
+int print_int(
 int _printf(const char *format, ...);
 
 #endif
