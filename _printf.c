@@ -1,37 +1,35 @@
 #include "_printf.h"
 /**
- * _printf -  Print ARGUMENT(s) according to FORMAT,
- * or execute according to OPTION.
- * @char format: Is a pointer to a constant character string.
+ * _printf -  Printf made by us.
+ * @format: Is a pointer to a constant character string.
+ *
+ * Return: Characters printed.
  */
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
-	int i, count;
-	int arg = 1;
+	int i, count = 0;
 
-	va_list();
-	va_start(, s);
+	va_list arguments;
 
-	if (s != NULL)
+	va_start(arguments, format);
+
+	if (format != NULL)
 	{
-		for (i = 0; s[i] != '\0'; i++)
+		for (i = 0; format[i] != '\0'; i++)
 		{
-			if (s[i] == '%')
+			if (format[i] == '%' && format[i + 1] != '\0')
 			{
-				count = 0;
-				count = (get_format(char c, char *s, va_list nombre));
-				for (i = 0; nombre[i] != NULL; i++)
-				{
-					count = _strlen(*s);
-					return (nombre[i].f);
-				}
-				for (j = 0; nombre2[j].nombre != NULL; J++)
-					if (s[i] == (hold[j].nombre))
-						count += nombre nombre2 .f;
+				count += get_op_format(format[++i], arguments);
 			}
-			else if
-				(s[i] + s[i + 1] == '%')
-					_putchar('%');
+			else
+			{
+				_putchar(format[i];
+				count++;
+			}
 		}
 	}
+
+	va_end(arguments);
+
+	return (count);
 }
