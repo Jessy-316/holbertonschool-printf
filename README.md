@@ -1,10 +1,13 @@
 # holbertonschool-printf
 
-The printf functions format and output data:
+printf Function
 
-    printf, vprint
+        The `printf` function in C produces formatted output to the standard output (stdout).
 
-snprintf helps prevent buffer overflow with variable-length strings.
+        Common Format Specifiers:
+        %d or %i: Signed decimal integer or a float. 
+        %s: String of characters.
+        %c: Single character.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -100,18 +103,3 @@ SYNOPSIS
 DESCRIPTION
        Retrieves the next argument in the variable argument list `ap`.
 -----------------------------------------------------------------------------------------------------------------------------------------
-
-c%
-- Print only one character.
-
-s%
-- Print string 
-
-d%
-- Print number integer and float
-
-i%
-- Print integer.
-
-%%
-- Print to the symbol %.
