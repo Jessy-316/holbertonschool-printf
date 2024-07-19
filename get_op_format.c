@@ -1,4 +1,4 @@
-#include "_printf.h"
+#include "main.h"
 /**
  * get_op_format - Connects to the correct operating function.
  * @spec: Operator passed as argument to the program.

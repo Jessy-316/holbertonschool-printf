@@ -1,4 +1,4 @@
-#include "_printf.h"
+#include "main.h"
 /**
  * print_char - Prints a single character.
  * @args: va_list woth the character to print.
@@ -54,7 +54,7 @@ int print_int(va_list args)
 	if (i == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	if (i < 0)
