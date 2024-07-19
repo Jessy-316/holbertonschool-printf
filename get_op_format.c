@@ -19,7 +19,7 @@ int get_op_format(char spec, va_list args)
 
 	for (i = 0, count = 0; ops[i].op != NULL; i++)
 	{
-		if (ops[i].op == spec)
+		if (ops[i].op[0] == spec)
 		{
 			count = ops[i].f(args);
 			break;

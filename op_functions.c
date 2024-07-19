@@ -70,9 +70,9 @@ int print_str(va_list args)
 int print_int(va_list args)
 {
 	int zeros;
+	int count = 0;
 	int temp;
-	int count;
-	int i;
+	int i = va_arg(args, int);
 
 	zeros = 1;
 	temp = i;
@@ -85,12 +85,12 @@ int print_int(va_list args)
 	while (i > 9)
 	{
 		temp = temp / 10;
-		zeros += 10;
+		zeros *= 10;
 	}
 	while (zeros >= 1)
 	{
-		count += _putchar(((i / zeros) % 10) + '0');
-		zeros / 10;
+		count += (_putchar(((i / zeros) % 10) + '0'));
+		zeros /= 10;
 	}
 	return (count);
 }

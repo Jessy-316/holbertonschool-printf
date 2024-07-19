@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+/**
+ * struct - Structure.
+ */
 typedef struct
 {
 char *op;
