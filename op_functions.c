@@ -1,96 +1,81 @@
 #include "_printf.h"
-
-/**
- * _putchar - print a character
- * @c: character
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 /**
  * print_char - Prints a single character.
- * @va_list: List of arguments.
- * @args: Amount of arguments.
- *
- * Return: 1.
+ * @args: va_list woth the character to print.
+ * Return: Amount of characters printed.
  */
 int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
 	_putchar(c);
+
 	return (1);
 }
 /**
- * _strlen - Finds the length of a string.
- * @s: Pointer to the string.
- *
- * Return: The length of the string.
- */
-int _strlen(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-
-	return (i);
-}
-/**
  * print_str - print a string
- * @args: strings given
+ * @args: Argument list.
  *
- * Return: the character on a string.
+ * Return: Number of characters printed.
  */
-
 int print_str(va_list args)
 {
-	char *s = va_arg(args, char*);
-	int i;
+	char *s = va_arg(args, char *);
+	int count = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	if (s == NULL)
 	{
-		_putchar(s[i]);
+		s = NULL;
 	}
-	return (i);
-}
 
+	while (*s)
+	{
+		_putchar(*s++);
+		count++;
+	}
+	return (count);
+}
 /**
  * print_int - print a integer.
  * @args: integer recieved.
  *
- * Return: 0.
+ * Return: Number of printed characters.
  */
-
 int print_int(va_list args)
 {
-	int zeros;
-	int count = 0;
-	int temp;
 	int i = va_arg(args, int);
+	int temp = i;
+	int count = 0;
+	char buffer[12];
+	char *str = buffer + sizeof(buffer) - 1;
 
-	zeros = 1;
-	temp = i;
+	*str = '\0';
+
+	if (i == 0)
+	{
+		_putchar('0');
+		return 1;
+	}
 
 	if (i < 0)
 	{
-		count += _putchar('-');
-		i = -i;
+		_putchar('-');
+		count++;
+		temp = -temp;
 	}
-	while (i > 9)
+
+	while (temp > 0)
 	{
-		temp = temp / 10;
-		zeros *= 10;
+		*--str = (temp % 10) + '0';
+		temp /= 10;
 	}
-	while (zeros >= 1)
+
+	while (*str)
 	{
-		count += (_putchar(((i / zeros) % 10) + '0'));
-		zeros /= 10;
+		_putchar(*str++);
+		count++;
 	}
-	return (count);
+
+		return (count);
+
 }
