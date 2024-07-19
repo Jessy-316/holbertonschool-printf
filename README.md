@@ -105,7 +105,7 @@ c%
 - Print only one character.
 
 s%
-- Print string 
+- Print string
 
 d%
 - Print number integer and float
