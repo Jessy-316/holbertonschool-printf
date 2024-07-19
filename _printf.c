@@ -19,15 +19,25 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] == '%' && format[i + 1] != '\0')
 			{
-				count += get_op_format(format[i + 1], args);
+				int print = get_op_format(format[i + 1], args);
+
+				if (print != 0)
+				{
+					count += print;
+					i++;
+				}
+				else
+				{
+					count += _putchar(format[i]);
+				}
 			}
 			else
 			{
-				_putchar(format[i]);
-				count++;
+				count += _putchar(format[i]);
 			}
 		}
 	}
 	va_end(args);
+
 	return (count);
 }
