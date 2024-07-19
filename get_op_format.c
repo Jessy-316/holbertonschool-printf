@@ -15,8 +15,13 @@ int get_op_format(char spec, va_list args)
 		{"i", print_int},
 		{NULL, NULL},
 	};
-	int i, count;
+	int i, count = 0;
 
+	if (spec == '%')
+	{
+		_putchar (spec);
+		count++;
+	}
 	for (i = 0, count = 0; ops[i].op != NULL; i++)
 	{
 		if (ops[i].op[0] == spec)
