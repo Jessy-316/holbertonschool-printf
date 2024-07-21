@@ -22,16 +22,18 @@ int print_str(va_list args)
 {
 	char *s = va_arg(args, char *);
 	int count = 0;
+	int i;
 
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		_putchar (s[i]);
+		count++;
+	}
 	if (s == NULL)
 	{
-		s = NULL;
-	}
-
-	while (*s)
-	{
-		_putchar(*s++);
-		count++;
+		return (-2);
+		i += 2;
+		count += 2;
 	}
 	return (count);
 }
@@ -43,10 +45,10 @@ int print_str(va_list args)
  */
 int print_int(va_list args)
 {
-	int i = va_arg(args, int);
-	int temp = i;
+	long int i = va_arg(args, long int);
+	unsigned long int temp;
 	int count = 0;
-	char buffer[12];
+	char buffer[21];
 	char *str = buffer + sizeof(buffer) - 1;
 
 	*str = '\0';
@@ -61,9 +63,13 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		count++;
-		temp = -temp;
-	}
 
+		temp = (unsigned long int)(-i);
+	}
+	else
+	{
+		temp = (unsigned long int)i;
+	}
 	while (temp > 0)
 	{
 		*--str = (temp % 10) + '0';
@@ -76,6 +82,5 @@ int print_int(va_list args)
 		count++;
 	}
 
-		return (count);
-
+	return (count);
 }

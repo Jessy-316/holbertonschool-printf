@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
 /**
  * struct op_t - Structure for selecting the appropriate print function.
  * @op: The format specifier.
