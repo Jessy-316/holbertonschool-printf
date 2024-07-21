@@ -24,16 +24,23 @@ int print_str(va_list args)
 	int count = 0;
 	int i;
 
+	if (s == NULL || s[0] == '\0')
+	{
+		return count;
+	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		_putchar (s[i]);
-		count++;
-	}
-	if (s == NULL)
-	{
-		return (-2);
-		i += 2;
-		count += 2;
+		if (s[i] == '%' && s[i + 1] == '%')
+		{
+			_putchar('%');
+			i++;
+			count++;
+		}
+		else
+		{
+			_putchar(s[i]);
+			count++;
+		}
 	}
 	return (count);
 }
