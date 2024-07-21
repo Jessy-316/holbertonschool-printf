@@ -9,6 +9,12 @@ printf \- prints a formatted output
 .B int print_int(va_list args);
 .SH DESCRIPTIONS
 .B Performs a print command action according to the selected format.
+The int _printf(constant char *format,..) declares a function called _printf,
+followed by its arguments. The va_list holds the variable arguments and 
+args desclares the variable type. The function will check the string
+if its NULL which will printi a count as a result, if not then it will
+ call a function using _putchar adding 1 to the count. Characters are 
+printed directly or interpreted as specifiers, along with the arguments called.
 .SH EXAMPLE
 .B #include main.h
 int _printf(const char *format, ...)
