@@ -4,7 +4,7 @@ The printf functions format and output data:
 
     printf
 
-snprintf helps prevent buffer overflow with variable-length strings.
+printf helps prevent buffer overflow with variable-length strings.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -13,92 +13,93 @@ Autorisin fuction and macros:
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       write - write to a file descriptor
+    write - write to a file descriptor
 
 SYNOPSIS
-       #include <unistd.h>
+    #include <unistd.h>
 
-       ssize_t write(int fd, const void *buf, size_t count);
+    ssize_t write(int fd, const void *buf, size_t count);
 
 DESCRIPTION
-       Writes up to count bytes from buf to the file descriptor fd.
+    Writes up to count bytes from buf to the file descriptor fd.
 
 RETURN VALUE
-       Returns the number of bytes written on success, or -1 on error.
+    Returns the number of bytes written on success, or -1 on error.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       malloc - allocate dynamic memory
+    malloc - allocate dynamic memory
 
 SYNOPSIS
-       #include <stdlib.h>
-       void *malloc(size_t size);
+    #include <stdlib.h>
+    void *malloc(size_t size);
 
 DESCRIPTION
-       Allocates `size` bytes of memory. Returns a pointer to the allocated memory, or NULL if allocation fails.
+    Allocates `size` bytes of memory. Returns a pointer to the allocated
+    memory, or NULL if allocation fails.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       free - free allocated memory
+    free - free allocated memory
 
 SYNOPSIS
-       #include <stdlib.h>
-       void free(void *ptr);
+    #include <stdlib.h>
+    void free(void *ptr);
 
 DESCRIPTION
-       Frees the memory space pointed to by `ptr`, which must have been returned by a previous call to malloc(), calloc(), or realloc().
+    Frees the memory space pointed to by `ptr`, which must have been returned by a previous call to malloc(), calloc(), or realloc().
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       va_start - initialize variable argument list
+    va_start - initialize variable argument list
 
 SYNOPSIS
-       #include <stdarg.h>
-       void va_start(va_list ap, last);
+    #include <stdarg.h>
+    void va_start(va_list ap, last);
 
 DESCRIPTION
-       Initializes `ap` to be used with va_arg() and va_end(). `last` is the last fixed argument.
+    Initializes `ap` to be used with va_arg() and va_end(). `last` is the last fixed argument.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       va_end - end variable argument list
+    va_end - end variable argument list
 
 SYNOPSIS
-       #include <stdarg.h>
-       void va_end(va_list ap);
+    #include <stdarg.h>
+    void va_end(va_list ap);
 
 DESCRIPTION
-       Cleans up the variable argument list initialized by va_start().
+    Cleans up the variable argument list initialized by va_start().
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       va_copy - copy variable argument list
+    va_copy - copy variable argument list
 
 SYNOPSIS
-       #include <stdarg.h>
-       void va_copy(va_list dest, va_list src);
+    #include <stdarg.h>
+    void va_copy(va_list dest, va_list src);
 
 DESCRIPTION
-       Copies the variable argument list from `src` to `dest`.
+    Copies the variable argument list from `src` to `dest`.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 NAME
-       va_arg - retrieve next argument
+    va_arg - retrieve next argument
 
 SYNOPSIS
-       #include <stdarg.h>
-       type va_arg(va_list ap, type);
+    #include <stdarg.h>
+    type va_arg(va_list ap, type);
 
 DESCRIPTION
-       Retrieves the next argument in the variable argument list `ap`.
+    Retrieves the next argument in the variable argument list `ap`.
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 %c - Print a single character.
