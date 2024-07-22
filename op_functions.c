@@ -13,6 +13,19 @@ int print_char(va_list args)
 	return (1);
 }
 /**
+ * _strlen - Calculates the length of the string.
+ * @s: The stirng being measured.
+ * Return: int (Success).
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+	return (i);
+}
+/**
  * print_str - print a string
  * @args: Argument list.
  *
@@ -21,38 +34,17 @@ int print_char(va_list args)
 int print_str(va_list args)
 {
 	char *s = va_arg(args, char *);
-	int count = 0;
-	int i;
+	size_t length;
+
 
 	if (s == NULL)
 	{
-		char *null_str = ("(null)");
-		while (*null_str)
-		{
-			_putchar(*null_str++);
-			count++;
-		}
-		return (count);
+		return (write(1, "(null)", 6));
 	}
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[0] == '\0')
-		{
-			return (count);
-		}
-		else if (s[i] == '%' && s[i + 1] == '%')
-		{
-			_putchar('%');
-			i++;
-			count++;
-		}
-		else
-		{
-			_putchar(s[i]);
-			count++;
-		}
-	}
-	return (count);
+
+	length = _strlen(s);
+
+	return (write(1, s, length));
 }
 /**
  * print_int - print a integer.
