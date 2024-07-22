@@ -32,14 +32,15 @@ int print_str(va_list args)
 			_putchar(*null_str++);
 			count++;
 		}
-	}
-	else if (s[0] == '\0')
-	{
 		return (count);
 	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == '%' && s[i + 1] == '%')
+		if (s[0] == '\0')
+		{
+			return (count);
+		}
+		else if (s[i] == '%' && s[i + 1] == '%')
 		{
 			_putchar('%');
 			i++;
