@@ -52,40 +52,29 @@ int print_str(va_list args)
  */
 int print_int(va_list args)
 {
-	int i = va_arg(args, int);
-	unsigned int temp;
-	int temp2;
-	int zero = 1;
-	int count = 0;
+	int n;
+	unsigned int num, div, zeros = 1, len = 0;
 
-	if (i == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
+	n = va_arg(args, int);
 
-	if (i < 0)
+	if (n < 0)
 	{
-		_putchar('-');
-		count++;
-		temp = (-i);
+		len += _putchar('-');
+		num = -n;
 	}
 	else
-	{
-		temp = i;
-	}
-	temp2 = temp;
-	while (temp2 > 9)
-	{
-		temp2 /= 10;
-		zero *= 10;
-	}
+		num = n;
 
-	while (zero >= 1)
+	div = num;
+	while (div > 9)
 	{
-		count += _putchar(((temp / zero) % 10) + '0');
-		zero /= 10;
+		div /= 10;
+		zeros *= 10;
 	}
-
-	return (count);
+	while (zeros >= 1)
+	{
+		len += _putchar(((num / zeros) % 10) + '0');
+		zeros = zeros / 10;
+	}
+	return (len);
 }
