@@ -52,7 +52,7 @@ int print_str(va_list args)
  */
 int print_int(va_list args)
 {
-	int i = va_arg(args, long int);
+	int i = va_arg(args, int);
 	unsigned int temp;
 	int count = 0;
 	char buffer[21];
