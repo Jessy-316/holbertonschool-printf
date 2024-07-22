@@ -44,6 +44,11 @@ int print_str(va_list args)
 
 	length = _strlen(s);
 
+	if (length == 0)
+	{
+		return (0);
+	}
+
 	return (write(1, s, length));
 }
 /**

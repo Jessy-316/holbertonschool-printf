@@ -15,10 +15,11 @@
 typedef struct op_t
 {
 char *op;
-int (*f)(va_list);
+int (*f)();
 } op_t;
 
 int get_op_format(char spec, va_list args);
+int _strlen(char *s);
 int _putchar(char c);
 int print_char(va_list);
 int print_str(va_list args);
