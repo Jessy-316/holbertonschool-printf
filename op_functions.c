@@ -26,7 +26,7 @@ int print_str(va_list args)
 
 	if (s == NULL || s[0] == '\0')
 	{
-		return count;
+		return (count);
 	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
