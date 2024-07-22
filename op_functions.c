@@ -1,63 +1,80 @@
-#include "_printf.h"
-
+#include "main.h"
 /**
- * _putchar - print a character
- * @c: character
- *
- * return(0)
+ * print_char - Prints a single character.
+ * @args: va_list woth the character to print.
+ * Return: Amount of characters printed.
  */
-
-int _putchar(char c)
+int print_char(va_list args)
 {
-	return write (1,&c,1);
+	char c = va_arg(args, int);
+
+	_putchar(c);
+
+	return (1);
 }
 /**
  * print_str - print a string
- * @s: _str
+ * @args: Argument list.
  *
- * return(0)
+ * Return: Number of characters printed.
  */
-
-int print_str(char *s)
+int print_str(va_list args)
 {
+	char *s = va_arg(args, char *);
+	int count = 0;
 	int i;
-	
-	for(i = 0; s[i] != '\0'; i++)
+
+	if (s == NULL || s[0] == '\0')
 	{
-		_putchar(s[i]);
+		return (count);
 	}
-	return(i);
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] == '%' && s[i + 1] == '%')
+		{
+			_putchar('%');
+			i++;
+			count++;
+		}
+		else
+		{
+			_putchar(s[i]);
+			count++;
+		}
+	}
+	return (count);
 }
-
 /**
- * pirnt_int - print a integer
+ * print_int - print a integer.
+ * @args: integer recieved.
  *
- * return(0)
+ * Return: Number of printed characters.
  */
-
-int print_int(int i)
+int print_int(va_list args)
 {
-	int zeros;
-	int temp;
-	int count;
+	int n;
+	unsigned int num, div, zeros = 1, len = 0;
 
-	zeros = 1;
-	temp = i;
+	n = va_arg(args, int);
 
-	if(i < 0)
+	if (n < 0)
 	{
-		count += _putchar('-');
-		i = -i;
+		len += _putchar('-');
+		num = -n;
 	}
-	while(i > 9)
+	else
+		num = n;
+
+	div = num;
+	while (div > 9)
 	{
-		temp = temp / 10;
-		zeros += 10;
+		div /= 10;
+		zeros *= 10;
 	}
-	while(zeros >= 1)
+	while (zeros >= 1)
 	{
-		count += _putchar(((i / zero) % 10) + '0');
-		zero / 10;
+		len += _putchar(((num / zeros) % 10) + '0');
+		zeros = zeros / 10;
 	}
-	return(count);
+	return (len);
 }
