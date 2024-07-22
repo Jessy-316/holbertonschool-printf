@@ -12,9 +12,8 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		return(0);
+		return (0);
 	}
-
 	va_start(args, format);
 
 	if (format != NULL)
@@ -33,14 +32,16 @@ int _printf(const char *format, ...)
 				else if (format[i + 1] == 's' && print == 0)
 				{
 					i++;
+					return (0);
 				}
 			}
 			else
 			{
-				count += _putchar(format[i]);
+				count += +putchar(format[i]);
 			}
 		}
 	}
 	va_end(args);
+
 	return (count);
 }
