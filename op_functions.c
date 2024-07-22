@@ -24,7 +24,16 @@ int print_str(va_list args)
 	int count = 0;
 	int i;
 
-	if (s == NULL || s[0] == '\0')
+	if (s == NULL)
+	{
+		char *null_str = ("(null)");
+		while (*null_str)
+		{
+			_putchar(*null_str++);
+			count++;
+		}
+	}
+	else if (s[0] == '\0')
 	{
 		return (count);
 	}
