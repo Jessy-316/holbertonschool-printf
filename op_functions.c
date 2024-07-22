@@ -53,7 +53,8 @@ int print_str(va_list args)
 int print_int(va_list args)
 {
 	int i = va_arg(args, int);
-	int temp, temp2;
+	unsigned int temp;
+	int temp2;
 	int zero = 1;
 	int count = 0;
 
