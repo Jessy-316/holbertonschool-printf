@@ -70,6 +70,10 @@ int print_int(va_list args)
 		count++;
 		temp = (-i);
 	}
+	else
+	{
+		temp = i;
+	}
 	temp2 = temp;
 	while (temp2 > 9)
 	{
