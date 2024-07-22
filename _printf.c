@@ -8,6 +8,7 @@
 int _printf(const char *format, ...)
 {
 	int i, count = 0;
+
 	va_list args;
 
 	va_start(args, format);
@@ -23,16 +24,16 @@ int _printf(const char *format, ...)
 				if (print != 0)
 				{
 					count += print;
-				}
-				else if (format[i + 1] == 's' && print == 0)
-				{
 					i++;
-					return (0);
+				}
+				else
+				{
+					count += _putchar(format[i]);
 				}
 			}
 			else
 			{
-				count += +putchar(format[i]);
+				count += _putchar(format[i]);
 			}
 		}
 	}
