@@ -53,12 +53,9 @@ int print_str(va_list args)
 int print_int(va_list args)
 {
 	int i = va_arg(args, int);
-	unsigned int temp;
+	int temp, temp2;
+	int zero = 1;
 	int count = 0;
-	char buffer[21];
-	char *str = buffer + sizeof(buffer) - 1;
-
-	*str = '\0';
 
 	if (i == 0)
 	{
@@ -70,24 +67,19 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		count++;
-
-		temp = (unsigned int)(-i);
-
+		temp = (-i);
 	}
-	else
+	temp2 = temp;
+	while (temp2 > 9)
 	{
-		temp = (unsigned int)i;
-	}
-	while (temp > 0)
-	{
-		*--str = (temp % 10) + '0';
-		temp /= 10;
+		temp2 /= 10;
+		zero *= 10;
 	}
 
-	while (*str)
+	while (zero >= 1)
 	{
-		_putchar(*str++);
-		count++;
+		count += _putchar(((temp / zero) % 10) + '0');
+		zero /= 10;
 	}
 
 	return (count);
