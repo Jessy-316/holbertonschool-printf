@@ -52,8 +52,8 @@ int print_str(va_list args)
  */
 int print_int(va_list args)
 {
-	long int i = va_arg(args, long int);
-	unsigned long int temp;
+	int i = va_arg(args, long int);
+	unsigned int temp;
 	int count = 0;
 	char buffer[21];
 	char *str = buffer + sizeof(buffer) - 1;
@@ -71,11 +71,12 @@ int print_int(va_list args)
 		_putchar('-');
 		count++;
 
-		temp = (unsigned long int)(-i);
+		temp = (unsigned int)(-i);
+
 	}
 	else
 	{
-		temp = (unsigned long int)i;
+		temp = (unsigned int)i;
 	}
 	while (temp > 0)
 	{
