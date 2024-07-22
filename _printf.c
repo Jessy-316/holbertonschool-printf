@@ -7,38 +7,25 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
-
 	va_list args;
+	int count = 0;
 
 	if (format == NULL)
-		return(0);
+		return (0);
 
 	va_start(args, format);
-
-	if (format != NULL)
+	while (*format)
 	{
-		for (i = 0; format[i] != '\0'; i++)
+		if (*format == '%' && *(format + 1))
 		{
-			if (format[i] == '%')
-			{
-				int print = get_op_format(format[i + 1], args);
-
-				if (print != 0)
-				{
-					count += print;
-					i++;
-				}
-				else if (format[i + 1] == 's' && print == 0)
-				{
-					i++;
-				}
-			}
-			else
-			{
-				count += _putchar(format[i]);
-			}
+			format++;
 		}
+		else
+		{
+			_putchar(*format);
+			count++;
+		}
+		format++;
 	}
 	va_end(args);
 
