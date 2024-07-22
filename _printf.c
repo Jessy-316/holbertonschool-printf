@@ -27,7 +27,6 @@ int _printf(const char *format, ...)
 				if (print != 0)
 				{
 					count += print;
-					i++;
 				}
 				else if (format[i + 1] == 's' && print == 0)
 				{
