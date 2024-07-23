@@ -38,10 +38,7 @@ int print_str(va_list args)
 
 
 	if (s == NULL)
-	{
 		return (write(1, "(null)", 6));
-	}
-
 	length = _strlen(s);
 
 	if (length == 0)
