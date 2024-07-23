@@ -37,7 +37,6 @@ int _printf(const char *format, ...)
 	}
 	else if (format == NULL)
 	{
-		va_end(args);
 		return (0);
 	}
 	va_end(args);
