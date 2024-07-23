@@ -35,9 +35,10 @@ int _printf(const char *format, ...)
 				count += _putchar(format[i]);
 		}
 	}
-	else if (format == NULL)
+	else
 	{
 		return (0);
+		count = (0);
 	}
 	va_end(args);
 
