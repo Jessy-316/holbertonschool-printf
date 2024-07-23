@@ -10,7 +10,7 @@ int print_char(va_list args)
 
 	_putchar(c);
 
-	return (1);
+	return (0);
 }
 /**
  * _strlen - Calculates the length of the string.
