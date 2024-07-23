@@ -13,7 +13,11 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (format != NULL)
+	if (format == NULL)
+	{
+		return (0);
+	}
+	else if (format != NULL)
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
@@ -34,10 +38,6 @@ int _printf(const char *format, ...)
 			else
 				count += _putchar(format[i]);
 		}
-	}
-	else
-	{
-		return (0);
 	}
 		va_end(args);
 
