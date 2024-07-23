@@ -10,7 +10,7 @@ int print_char(va_list args)
 
 	_putchar(c);
 
-	return (0);
+	return (1);
 }
 /**
  * _strlen - Calculates the length of the string.
@@ -19,11 +19,10 @@ int print_char(va_list args)
  */
 int _strlen(char *s)
 {
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
+    const char *s = str;
+    while (*s)
+        s++;
+    return s - str;
 }
 /**
  * print_str - print a string
