@@ -37,8 +37,7 @@ int _printf(const char *format, ...)
 	}
 	else
 	{
-		count += 0;
-		return (count);
+		return (0);
 	}
 		va_end(args);
 
