@@ -19,10 +19,11 @@ int print_char(va_list args)
  */
 int _strlen(char *s)
 {
-    const char *s = str;
-    while (*s)
-        s++;
-    return s - str;
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+	return (1);
 }
 /**
  * print_str - print a string

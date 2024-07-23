@@ -7,18 +7,17 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count = 0;
-	int i;
+	int i, count = 0;
 
-	if (format == NULL)
-	{
-		return (0);
-	}
+	va_list args;
 
 	va_start(args, format);
 
-	if (format != NULL)
+	if (format == NULL)
+	{
+		return (-1);
+	}
+	else if (format != NULL)
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
@@ -40,7 +39,7 @@ int _printf(const char *format, ...)
 				count += _putchar(format[i]);
 		}
 	}
-		va_end(args);
+	va_end(args);
 
-		return (count);
+	return (count);
 }
