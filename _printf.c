@@ -31,12 +31,18 @@ int _printf(const char *format, ...)
 					i++;
 				}
 				else if (format[i + 1] == 's' && print == 0)
+				{
 					i++;
+				}
 				else
+				{
 					count += _putchar(format[i]);
+				}
 			}
 			else
+			{
 				count += _putchar(format[i]);
+			}
 		}
 	}
 	va_end(args);
