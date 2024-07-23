@@ -42,11 +42,6 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-	else
-	{
-		return (0);
-		count = (0);
-	}
 	va_end(args);
 
 	return (count);
