@@ -13,24 +13,21 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (format == NULL)
-		return (0);
-
 	if (format != NULL)
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
-			if (format[i] == '%')
+			if (format[i] == '%' && format[i + 1] != '\0')
 			{
 				int print = get_op_format(format[i + 1], args);
 
-				if (print != 0)
-					count += print;
-				else if (format[i + 1] == 's' && print == 0)
+				if (print == 0)
+					count += _putchar(format[i]);
+				else if (print < 0)
 					i++;
 				else
 				{
-					count += _putchar(format[i]);
+					count += print;
 					i++;
 				}
 			}
