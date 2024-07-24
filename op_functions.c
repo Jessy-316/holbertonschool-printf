@@ -13,19 +13,6 @@ int print_char(va_list args)
 	return (1);
 }
 /**
- * _strlen - Calculates the length of the string.
- * @s: The stirng being measured.
- * Return: int (Success).
- */
-int _strlen(char *s)
-{
-        int i;
-
-        for (i = 0; s[i] != '\0'; i++)
-                ;
-        return (1);
-}
-/**
  * print_str - print a string
  * @args: Argument list.
  *
