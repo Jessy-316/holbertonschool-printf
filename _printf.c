@@ -27,7 +27,9 @@ int _printf(const char *format, ...)
 					i++;
 				}
 				else
+				{
 					count += _putchar(format[i]);
+				}
 				if (format[i + 1] != '\0')
 				{
 					count += _putchar(format[i + 1]);
@@ -35,7 +37,9 @@ int _printf(const char *format, ...)
 				}
 			}
 			else
+			{
 				count += _putchar(format[i]);
+			}
 		}
 	}
 	va_end(args);
