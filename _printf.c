@@ -21,13 +21,16 @@ int _printf(const char *format, ...)
 			{
 				int print = get_op_format(format[i + 1], args);
 
-				if (print == 0)
-					count += _putchar(format[i]);
-				else if (print < 0)
-					i++;
-				else
+				if (print > 0)
 				{
 					count += print;
+					i++;
+				}
+				else
+					count += _putchar(format[i]);
+				if (format[i + 1] != '\0')
+				{
+					count += _putchar(format[i + 1]);
 					i++;
 				}
 			}
