@@ -25,23 +25,19 @@ int _printf(const char *format, ...)
 				int print = get_op_format(format[i + 1], args);
 
 				if (print != 0)
-				{
 					count += print;
+				else if (print < 0)
 					i++;
-				}
 				else if (format[i + 1] == 's' && print == 0)
-				{
 					i++;
-				}
 				else
 				{
 					count += _putchar(format[i]);
+					i++;
 				}
 			}
 			else
-			{
 				count += _putchar(format[i]);
-			}
 		}
 	}
 	va_end(args);
