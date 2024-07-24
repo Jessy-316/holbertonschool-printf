@@ -29,9 +29,9 @@ int get_op_format(char spec, va_list args)
 			if (ops[i].op[0] == spec)
 			{
 				count += ops[i].f(args);
-				break;
+				return (count);
 			}
 		}
 	}
-	return (count);
+	return (0);
 }
