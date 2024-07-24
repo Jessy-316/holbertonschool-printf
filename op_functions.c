@@ -19,11 +19,11 @@ int print_char(va_list args)
  */
 int _strlen(char *s)
 {
-	int i;
+        int i;
 
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (1);
+        for (i = 0; s[i] != '\0'; i++)
+                ;
+        return (1);
 }
 /**
  * print_str - print a string
@@ -33,20 +33,20 @@ int _strlen(char *s)
  */
 int print_str(va_list args)
 {
-	char *s = va_arg(args, char *);
-	size_t length;
+	char *str = va_arg(args, char *);
+	int count = 0;
 
-
-	if (s == NULL)
-		return (write(1, "(null)", 6));
-	length = _strlen(s);
-
-	if (length == 0)
+	if (str == NULL)
 	{
-		return (0);
+		return (-1);
 	}
 
-	return (write(1, s, length));
+	while (*str)
+	{
+		_putchar(*str++);
+		count++;
+	}
+	return (count);
 }
 /**
  * print_int - print a integer.
