@@ -25,8 +25,7 @@ int print_str(va_list args)
 
 	if (str == NULL)
 	{
-		write(1, "(null)", 6);
-		return (-1);
+		str = ("(null)");
 	}
 
 	while (*str)
