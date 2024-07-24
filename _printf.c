@@ -8,7 +8,6 @@
 int _printf(const char *format, ...)
 {
 	int i, count = 0;
-
 	va_list args;
 
 	va_start(args, format);
@@ -26,9 +25,11 @@ int _printf(const char *format, ...)
 					count += print;
 					i++;
 				}
-				else
+				else if (print == 0)
 				{
-					count += _putchar(format[i]);
+					count += _putchar('%');
+					count += _putchar(format[i + 1]);
+					i++;
 				}
 				if (format[i + 1] != '\0')
 				{
