@@ -8,6 +8,7 @@
 int _printf(const char *format, ...)
 {
 	int i, count = 0;
+
 	va_list args;
 
 	va_start(args, format);
@@ -20,15 +21,17 @@ int _printf(const char *format, ...)
 			{
 				int print = get_op_format(format[i + 1], args);
 
-				if (print > 0)
+				if (print == 0)
 				{
-					count += print;
+					count += _putchar(format[i]);
+				}
+				else if (print < 0)
+				{
 					i++;
 				}
-				else if (print == 0)
+				else
 				{
-					count += _putchar('%');
-					count += _putchar(format[i + 1]);
+					count += print;
 					i++;
 				}
 			}

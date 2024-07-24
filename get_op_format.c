@@ -33,5 +33,5 @@ int get_op_format(char spec, va_list args)
 			}
 		}
 	}
-	return (0);
+	return (count);
 }

@@ -25,7 +25,12 @@ int print_str(va_list args)
 
 	if (str == NULL)
 	{
-		str = ("(null)");
+		write(1, "(null)", 6);
+		return (0);
+	}
+	else if (str[0] == '\0')
+	{
+		return (-1);
 	}
 
 	while (*str)
