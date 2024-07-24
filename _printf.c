@@ -31,11 +31,6 @@ int _printf(const char *format, ...)
 					count += _putchar(format[i + 1]);
 					i++;
 				}
-				if (format[i + 1] != '\0')
-				{
-					count += _putchar(format[i + 1]);
-					i++;
-				}
 			}
 			else
 			{
